@@ -303,6 +303,7 @@ function draw(move) {
 
 function clearCanvas() {
   const ctx = canvas.ctx();
+
   ctx.clearRect(0, 0, canvas.width(), canvas.height());
 }
 
@@ -327,8 +328,10 @@ function initialize() {
   resetGame();
 
   document.addEventListener("keydown", e => {
-    e.preventDefault();
-    draw(e.code);
+    if (e.key.includes("Arrow")) {
+      e.preventDefault();
+      draw(e.key);
+    }
   });
 }
 

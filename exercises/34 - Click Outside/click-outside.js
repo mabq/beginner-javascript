@@ -1,44 +1,47 @@
-const cardButtons = document.querySelectorAll('.card button');
-const modalOuter = document.querySelector('.modal-outer');
-const modalInner = document.querySelector('.modal-inner');
+// READ
+// Fíjate que lo único que realmente hacemos aquí es añadir y quitar la clase
+// "open" al div "modal-outer". Todo lo demás se hace con CSS.
 
-function handleCardButtonClick(event) {
-  const button = event.currentTarget;
-  const card = button.closest('.card');
-  // Grab the image src
-  const imgSrc = card.querySelector('img').src;
+const cards = document.querySelectorAll(".card");
+const modalOuter = document.querySelector(".modal-outer");
+const modalInner = document.querySelector(".modal-inner");
+
+// Functions
+function handleCardButtonClick(e) {
+  const card = e.target.closest(".card");
   const desc = card.dataset.description;
-  const name = card.querySelector('h2').textContent;
-  // populate the modal with the new info
-  modalInner.innerHTML = `
-    <img width="600" height="600" src="${imgSrc.replace(
-      '200',
-      '600'
-    )}" alt="${name}"/>
-    <p>${desc}</p>
-  `;
-  // show the modal
-  modalOuter.classList.add('open');
-}
+  const src = card.querySelector("img").src;
+  const title = card.querySelector("h2").textContent;
 
-cardButtons.forEach(button =>
-  button.addEventListener('click', handleCardButtonClick)
-);
+  // Escribir el contenido del modal
+  modalInner.innerHTML = `
+    <img height="600" width="600" src="${src.replace(
+      "200",
+      "600"
+    )}" alt="${desc}" />
+    <p>${title}</p>
+  `;
+
+  // Agregar la clase para que se muestre. La animación es CSS.
+  modalOuter.classList.add("open");
+}
 
 function closeModal() {
-  modalOuter.classList.remove('open');
+  modalOuter.classList.remove("open");
 }
 
-modalOuter.addEventListener('click', function(event) {
-  const isOutside = !event.target.closest('.modal-inner');
-  if (isOutside) {
+// Event listeners
+cards.forEach(card => card.addEventListener("click", handleCardButtonClick));
+
+modalOuter.addEventListener("click", e => {
+  const close = !e.target.closest(".modal-inner");
+  if (close) {
     closeModal();
   }
 });
 
-window.addEventListener('keydown', event => {
-  console.log(event);
-  if (event.key === 'Escape') {
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
     closeModal();
   }
 });
