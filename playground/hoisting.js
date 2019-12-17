@@ -8,7 +8,7 @@ sayHi();
 
 /* How does this file do it? */
 function sayHi() {
-  console.log('hey!');
+  console.log("hey!");
   console.log(add(10, 2));
 }
 
