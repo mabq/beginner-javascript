@@ -1,0 +1,11 @@
+{
+  "name": "gallery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gallery-DEMO.js",
+  "scripts": {
+    "parcel": "parcel index.html"
+  },
+  "author": "mabq",
+  "license": "ISC"
+}
