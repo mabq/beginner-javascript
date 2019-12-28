@@ -20,7 +20,7 @@
   border-radius: 5px;
   box-shadow: var(--box-shadow);
   transition: all 0.2s;
-  --scale: 0.3;
+  --scale: 0.4;
   transform: scale(var(--scale));
 }
 
