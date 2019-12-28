@@ -19,8 +19,8 @@ const menu = {
 };
 
 function makePizza(ingredients = []) {
-  const amountOfTimeToBake = ingredients.length * 200;
   return new Promise((resolve, reject) => {
+    const amountOfTimeToBake = ingredients.length * 200;
     setTimeout(() => {
       resolve(`Pizza is ready > ${ingredients.join(', ')}.`);
     }, amountOfTimeToBake);
