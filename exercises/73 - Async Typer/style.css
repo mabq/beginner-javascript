@@ -1,0 +1,19 @@
+h2 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 50px;
+  letter-spacing: -0.5px;
+}
+
+[data-type] {
+  opacity: 0;
+  -webkit-transition: opacity 1.5s ease-in-out;
+  -moz-transition: opacity 1.5s ease-in-out;
+  -ms-transition: opacity 1.5s ease-in-out;
+  -o-transition: opacity 1.5s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
+}
+
+[data-type].typeNow {
+  opacity: 1;
+}
